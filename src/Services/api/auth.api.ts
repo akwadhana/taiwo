@@ -1,3 +1,4 @@
+import axios from "axios";
 import axiosInstance from "../../Util/Https";
 
 interface RegisterPayload {
@@ -15,14 +16,14 @@ const apiRequest = async (endpoint: string, payload: object) => {
     const response = await axiosInstance.post(endpoint, payload);
     return response.data;
   } catch (error: unknown) {
-    if (error instanceof Error && "response" in error && error.response) {
-      // If error has a response, return the error response data
-      throw (error as any).response.data;
+    if (axios.isAxiosError(error)) {
+      
+      throw error.response?.data || "An error occurred with the request";
     } else if (error instanceof Error) {
-      // If error is a standard JS Error, throw the error message
+      
       throw error.message;
     } else {
-      // Handle completely unknown errors
+      
       throw "An unknown error occurred";
     }
   }
