@@ -26,11 +26,11 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   response => response,
   error => {
-    if (error.response?.status === 401 ) {
-      store.clearAll()
-      toast.error("Session expired, please login again")
+    // if (error.response?.status === 401 ) {
+    //   store.clearAll()
+    //   toast.error("Session expired, please login again")
       
-    }
+    // }
     return Promise.reject(error)
 
   },

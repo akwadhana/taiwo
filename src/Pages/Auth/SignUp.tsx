@@ -1,32 +1,36 @@
 import { useForm } from "react-hook-form";
 import { registerUser } from "../../Services/api/auth.api";
-import { useNavigate } from "react-router-dom"; // Assuming you're using react-router for navigation
+import { useNavigate } from "react-router-dom";
+
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
 
 const SignupForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<FormData>();
 
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: FormData) => {
     console.log("Form submitted", data);
 
     try {
       const response = await registerUser(data);
       if (response?.success) {
-        // Handle successful registration
         console.log("Registration successful", response);
-        navigate("/login"); // Redirect to login page or any other page
+        navigate("/login");
       } else {
-        // Handle registration failure
-        console.error("Registration failed", response?.message);
+        console.error("Registration failed", response?.message || "Unknown error");
       }
-    } catch (error) {
-      // Handle any errors that occurred during the API call
-      console.error("An error occurred during registration", error);
+    } catch (error: any) {
+      console.error("An error occurred during registration", error?.message || error);
     }
   };
 
@@ -57,7 +61,13 @@ const SignupForm = () => {
         <label className="block text-sm font-medium text-gray-700 mt-4">Email</label>
         <input
           type="email"
-          {...register("email", { required: "Email is required", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email address" } })}
+          {...register("email", {
+            required: "Email is required",
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: "Invalid email address",
+            },
+          })}
           className="mt-1 p-2 w-full border rounded-md"
         />
         {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
@@ -65,7 +75,13 @@ const SignupForm = () => {
         <label className="block text-sm font-medium text-gray-700 mt-4">Password</label>
         <input
           type="password"
-          {...register("password", { required: "Password is required", minLength: { value: 6, message: "Password must be at least 6 characters long" } })}
+          {...register("password", {
+            required: "Password is required",
+            minLength: {
+              value: 6,
+              message: "Password must be at least 6 characters long",
+            },
+          })}
           className="mt-1 p-2 w-full border rounded-md"
         />
         {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}

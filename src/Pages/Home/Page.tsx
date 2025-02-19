@@ -8,8 +8,7 @@ const Page = () => {
       button1: "Technology",
       imageSrc2: Head,
       title: "Proactive Approach",
-      description:
-        "The Impact of Technology on the Workplace: How Technology is Changing",
+      description: "The Impact of Technology on the Workplace: How Technology is Changing",
       date: "Jan 30, 2025",
     },
     {
@@ -54,18 +53,18 @@ const Page = () => {
     },
   ];
 
-  const [displayedCards, setDisplayedCards] = useState(() =>
-    shuffleArray(allCardData).slice(0, 3)
-  );
-
-  function shuffleArray(array) {
+  // Shuffle function with TypeScript annotations
+  const shuffleArray = <T,>(array: T[]): T[] => {
     return [...array].sort(() => Math.random() - 0.5);
-  }
+  };
+
+  // Use a function inside useState to avoid immediate execution
+  const [displayedCards, setDisplayedCards] = useState(() => shuffleArray(allCardData).slice(0, 3));
 
   const loadMoreCards = () => {
-    const remainingCards = allCardData.filter(
-      (card) => !displayedCards.includes(card)
-    );
+    const displayedSet = new Set(displayedCards);
+    const remainingCards = allCardData.filter((card) => !displayedSet.has(card));
+
     if (remainingCards.length === 0) {
       setDisplayedCards(shuffleArray(allCardData).slice(0, 3));
     } else {
@@ -99,7 +98,7 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="mt-20 text-center  lg:text-start lg:ml-50 text-[#181A2A] text-[24px] font-semibold">
+      <div className="mt-20 text-center lg:text-start lg:ml-50 text-[#181A2A] text-[24px] font-semibold">
         <p>Latest Post</p>
       </div>
 
@@ -115,20 +114,23 @@ const Page = () => {
                   <img className="w-full h-full object-cover" src={card.imageSrc1} alt={card.title} />
                 </div>
               </div>
-              <button className="mt-4 bg-[#4B6BFB0D] text-center  text-[#4B6BFB] py-2 px-6 lg:w-35 rounded-lg">
+              <button className="mt-4 bg-[#4B6BFB0D] text-center text-[#4B6BFB] py-2 px-6 lg:w-35 rounded-lg">
                 {card.button1}
               </button>
               <p className="text-[#181A2A] text-[20px] px-3 mt-4">{card.description}</p>
-              <div className="flex items-center  mt-4">
+              <div className="flex items-center mt-4">
                 <div className="flex items-center space-x-3">
-                  <img className="w-[36px] h-[36px] rounded-full  " src={card.imageSrc2} alt={card.title} />
-                  <h1 className="text-[16px] text-[#B2BBD1]  font-semibold">{card.title}</h1>
+                  <img className="w-[36px] h-[36px] rounded-full" src={card.imageSrc2} alt={card.title} />
+                  <h1 className="text-[16px] text-[#B2BBD1] font-semibold">{card.title}</h1>
                 </div>
                 <span className="text-[14px] ml-7 text-[#7A849C]">{card.date}</span>
               </div>
             </div>
           ))}
         </div>
+        <button onClick={loadMoreCards} className="mt-6 bg-[#4B6BFB] text-white py-2 px-6 rounded-lg">
+          Load More
+        </button>
       </div>
     </>
   );
