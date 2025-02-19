@@ -110,6 +110,9 @@ const NavBar: React.FC = () => {
               className="w-full px-3 py-2 text-sm text-[#3B3C4A] dark:text-gray-300 dark:bg-gray-700 border border-[#3B3C4A] dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3B3C4A] dark:focus:ring-gray-500"
             />
           </form>
+          <button onClick={toggleTheme} className="px-4 py-2 text-sm font-medium text-black dark:text-white bg-primary dark:bg-gray-700 rounded-md">
+              {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+            </button>
         </div>
       </div>
     </nav>

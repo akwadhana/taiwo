@@ -8,7 +8,7 @@ import SinglePost from "../Pages/Home/SinglePost";
 import Login from "../Pages/Auth/Login";
 
 export const HomeRoutes = {
-  path: "/", 
+ 
   element: <HomeLayout />,
   children: [
     {
