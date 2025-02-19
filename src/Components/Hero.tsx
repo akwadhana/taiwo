@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
     >
       <div className="absolute inset-0 rounded-2xl bg-black opacity-15"></div>
 
-      <div className="lg:mx-12 lg:px-8 lg:mt-[25%] lg:h-[304px] rounded-2xl  mt-40  ml-5  z-10">
+      <div className="lg:mx-12 lg:px-8 lg:mt-[25%] lg:h-[304px] rounded-2xl  mt-20  ml-5  z-10">
         <Link to="/SinglePost">
           <button className=" ml-3 bg-[#4B6BFB]  mt-8  text-[#FFFFFF]  py-2 px-5 rounded-lg">
             Technology
