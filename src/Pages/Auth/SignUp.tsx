@@ -29,8 +29,12 @@ const SignupForm = () => {
       } else {
         console.error("Registration failed", response?.message || "Unknown error");
       }
-    } catch (error: any) {
-      console.error("An error occurred during registration", error?.message || error);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error("An error occurred during registration", error.message);
+      } else {
+        console.error("An unknown error occurred", error);
+      }
     }
   };
 

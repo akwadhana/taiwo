@@ -74,10 +74,10 @@ const OurWork: React.FC = () => {
       (card) => !displayedCards.includes(card)
     );
     if (remainingCards.length === 0) {
-      // Restart with a fresh shuffle when all cards are loaded
+      
       setDisplayedCards(shuffleArray(allCardData).slice(0, 3));
     } else {
-      // Load 3 more random cards
+  
       const newCards = shuffleArray(remainingCards).slice(0, 3);
       setDisplayedCards((prev) => [...prev, ...newCards]);
     }

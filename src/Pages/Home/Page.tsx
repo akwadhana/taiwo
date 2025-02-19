@@ -53,12 +53,11 @@ const Page = () => {
     },
   ];
 
-  // Shuffle function with TypeScript annotations
+ 
   const shuffleArray = <T,>(array: T[]): T[] => {
     return [...array].sort(() => Math.random() - 0.5);
   };
 
-  // Use a function inside useState to avoid immediate execution
   const [displayedCards, setDisplayedCards] = useState(() => shuffleArray(allCardData).slice(0, 3));
 
   const loadMoreCards = () => {

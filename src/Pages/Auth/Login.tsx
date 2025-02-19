@@ -27,8 +27,8 @@ const LoginForm = () => {
       } else {
         console.error("Login failed", response?.message || "Unknown error");
       }
-    } catch (error: any) {
-      console.error("An error occurred during login", error?.message || error);
+    } catch (error: unknown) {
+      console.error("An unknown error occurred", error);
     }
   };
 

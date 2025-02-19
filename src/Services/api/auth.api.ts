@@ -1,4 +1,3 @@
-// import { loginUser, registerUser } from "../api/auth.api";
 import axiosInstance from "../../Util/Https";
 
 interface RegisterPayload {
@@ -16,7 +15,16 @@ const apiRequest = async (endpoint: string, payload: object) => {
     const response = await axiosInstance.post(endpoint, payload);
     return response.data;
   } catch (error: unknown) {
-    throw error.response?.data || error;
+    if (error instanceof Error && "response" in error && error.response) {
+      // If error has a response, return the error response data
+      throw (error as any).response.data;
+    } else if (error instanceof Error) {
+      // If error is a standard JS Error, throw the error message
+      throw error.message;
+    } else {
+      // Handle completely unknown errors
+      throw "An unknown error occurred";
+    }
   }
 };
 
@@ -25,4 +33,3 @@ export const registerUser = (payload: RegisterPayload) =>
 
 export const loginUser = (payload: LoginPayload) => 
   apiRequest("/api/user/login", payload);
-
