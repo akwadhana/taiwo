@@ -103,7 +103,7 @@ const OurWork: React.FC = () => {
               </div>
             </div>
 <Link to ='/SinglePost'>
-<button className="mt-4 bg-[#4B6BFB0D] text-center  text-[#4B6BFB] py-2 px-6 lg:w-35 rounded-lg">
+<button className="mt-4 bg-[#4B6BFB0D] text-center  text-[#4B6BFB] py-2 px-6 lg:w-35 rounded-lg ">
               {card.button1}
             </button>
 

@@ -34,7 +34,11 @@ const NavBar: React.FC = () => {
             <Link to="/Home" className="px-3 py-2 text-[#3B3C4A] text-sm font-medium relative border-b-2 border-transparent focus:border-black hover:border-black transition-all duration-300 outline-none focus:ring-2 focus:ring-black">Home</Link>
             <Link to="/Blogs" className="px-3 py-2 text-[#3B3C4A] text-sm font-medium relative inline-block after:block after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">Blog</Link>
             <Link to="/SinglePost" className="px-3 py-2 text-[#3B3C4A] text-sm font-medium relative inline-block after:block after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">Single Post</Link>
-            <Link to="/Page" className="px-3 py-2 text-[#3B3C4A] text-sm font-medium relative inline-block after:block after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">Page</Link>
+            
+
+          <Link to="/Page" className="px-3 py-2 text-[#3B3C4A] text-sm font-medium relative inline-block after:block after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">Page</Link>
+          <Link to="/Auth/Login" className="px-3 py-2 text-[#3B3C4A] text-sm font-medium" onClick={toggleMobileMenu}>Login</Link>
+          <Link to="/Auth/Register" className="px-3 py-2 text-[#3B3C4A] text-sm font-medium" onClick={toggleMobileMenu}>SignUp</Link>
             <div className="px-3 py-2 text-[#3B3C4A] text-sm font-medium relative inline-block after:block after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">Contact</div>
             
             <form onSubmit={handleSearchSubmit} className="flex items-center relative">
@@ -93,6 +97,11 @@ const NavBar: React.FC = () => {
           <Link to="/SinglePost" className="block px-3 text-[#3B3C4A] py-2 text-sm font-medium"onClick={toggleMobileMenu}>Single Post</Link>
           <Link to="/Page" className="block px-3 text-[#3B3C4A] py-2 text-sm font-medium"onClick={toggleMobileMenu}>Page</Link>
           <div className="block px-3 text-[#3B3C4A] py-2 text-sm font-medium"onClick={toggleMobileMenu}>Contact</div>
+          <div className="flex flex-col">
+          <Link to="/Auth/Login" className="px-3 py-2 text-[#3B3C4A] text-sm font-medium" onClick={toggleMobileMenu}>Login</Link>
+          <Link to="/Auth/Register" className="px-3 py-2 text-[#3B3C4A] text-sm font-medium" onClick={toggleMobileMenu}>SignUp</Link>
+          </div>
+       
           
           <form onSubmit={handleSearchSubmit} className="mt-4 px-3">
             <input

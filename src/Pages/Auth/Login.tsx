@@ -1,22 +1,24 @@
 import { useForm } from "react-hook-form";
 import { loginUser } from "../../Services/api/auth.api";
-import { useNavigate } from "react-router-dom";
 import Head from "../../assets/images/Header.png"; 
-interface FormData {
+import { Link, useNavigate } from "react-router-dom";
+import { Logo } from "../../assets";
+
+interface LoginFormInputs {
   email: string;
   password: string;
 }
 
-const LoginForm = () => {
+const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<LoginFormInputs>();
 
   const navigate = useNavigate();
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: LoginFormInputs) => {
     console.log("Form submitted", data);
 
     try {
@@ -31,67 +33,82 @@ const LoginForm = () => {
       console.error("An unknown error occurred", error);
     }
   };
-
+ 
   return (
-    <div className="flex">
-      {/* Image Section */}
-      <div className="flex-1 flex justify-center items-center bg-gray-100">
+    <div className="lg:min-h-screen  bg-white">
+       <div className="lg:absolute lg: top-5 left-[1450px] ">
+            <Link to="/Home">
+              <img className="h-5 lg:h-7 " src={Logo} alt="Logo" />
+            </Link>
+            </div>
+      <div className="flex flex-col lg:flex-row w-full  h-screen">
         <img
           src={Head}
           alt="Decorative"
-          className="lg:min-h-screen lg:w-full object-cover"
+          className="lg:w-1/2 w-full object-cover "
         />
-      </div>
+        <div className="w-full lg:w-[300px] relative lg:ml-50  mt-20 p-10 bg-white rounded-lg">
+          <h2 className="text-center text-gray-800 text-3xl mb-6">Login</h2>
+          <form onSubmit={handleSubmit(onSubmit)}>
+       
 
-      {/* Login Form Section */}
-      <div className="flex-1 flex justify-center items-center bg-gray-100">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="bg-white p-6 rounded-lg shadow-md w-96"
-        >
-          <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
 
-          {/* Email Input */}
-          <label className="block text-sm font-medium text-gray-700">Email</label>
-          <input
-            type="email"
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: "Invalid email address",
-              },
-            })}
-            className="mt-1 p-2 w-full border rounded-md"
-          />
-          {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+            <div className="relative mb-6">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                    message: "Invalid email format",
+                  },
+                })}
+                className="w-full p-2 bg-transparent border-b border-gray-800 text-gray-800 outline-none focus:border-gray-400"
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
 
-          {/* Password Input */}
-          <label className="block text-sm font-medium text-gray-700 mt-4">Password</label>
-          <input
-            type="password"
-            {...register("password", {
-              required: "Password is required",
-              minLength: {
-                value: 6,
-                message: "Password must be at least 6 characters long",
-              },
-            })}
-            className="mt-1 p-2 w-full border rounded-md"
-          />
-          {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
+         
+            <div className="relative mb-6">
+              <input
+                type="password"
+                placeholder="Enter your password"
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 6 characters long",
+                  },
+                })}
+                className="w-full p-2 bg-transparent border-b border-gray-800 text-gray-800 outline-none focus:border-gray-400"
+              />
+              {errors.password && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.password.message}
+                </p>
+              )}
+            </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="mt-4 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
-          >
-            Login
-          </button>
-        </form>
+            <button
+              type="submit"
+              className="w-full py-2 mt-4 text-gray-800 uppercase tracking-wider border border-gray-400 hover:bg-gray-400 hover:text-gray-900 transition duration-300 rounded"
+            >
+              Login
+            </button>
+            <div className="mt-5">
+            <Link to="/Auth/Register" className="text-black hover:underline ">Create An Account?</Link>
+            </div>
+           
+          </form>
+        </div>
       </div>
     </div>
   );
 };
 
-export default LoginForm;
+export default Login;
