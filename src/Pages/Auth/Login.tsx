@@ -36,7 +36,7 @@ const Login = () => {
  
   return (
     <div className="lg:min-h-screen  bg-white">
-       <div className="lg:absolute lg: top-5 left-[1450px] ">
+       <div className="lg:absolute lg: top-5 left-[1400px] mt-5 ml-2 ">
             <Link to="/Home">
               <img className="h-5 lg:h-7 " src={Logo} alt="Logo" />
             </Link>
@@ -45,7 +45,7 @@ const Login = () => {
         <img
           src={Head}
           alt="Decorative"
-          className="lg:w-1/2 w-full object-cover "
+          className="lg:w-1/2 w-full lg:mt-0 mt-5 px-2 lg:px-0 object-cover "
         />
         <div className="w-full lg:w-[300px] relative lg:ml-50  mt-20 p-10 bg-white rounded-lg">
           <h2 className="text-center text-gray-800 text-3xl mb-6">Login</h2>

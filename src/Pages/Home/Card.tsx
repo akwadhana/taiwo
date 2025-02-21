@@ -110,7 +110,7 @@ const OurWork: React.FC = () => {
               </div>
             </div>
            <Link to='/SinglePost'>
-           <button className="mt-4 bg-[#4B6BFB0D] text-center  text-[#4B6BFB] py-2 px-6 lg:w-35 rounded-lg">
+           <button className="mt-4 bg-[#4B6BFB0D] text-center hover:bg-[#4B6BFB] hover:text-white transition duration-300  text-[#4B6BFB] py-2 px-6 lg:w-35 rounded-lg">
               {card.button1}
             </button>
            </Link>
@@ -137,11 +137,13 @@ const OurWork: React.FC = () => {
 
  
       <button
-        onClick={loadMoreCards}
-        className="mt-6 text-[16px] text-[#696A75] border border-[#696A754D] py-4 px-6 rounded-lg"
-      >
-        View All Post
-      </button>
+  onClick={loadMoreCards}
+  className="mt-6 text-[16px] text-[#696A75] border border-[#696A754D] py-4 px-6 rounded-lg 
+             hover:text-[#4B5563] hover:border-[#696A75] hover:bg-[#F3F4F6] transition duration-300"
+>
+  View All Post
+</button>
+
     
 <div>
   <div className="w-[350px] lg:w-[750px] h-[100px]"> 

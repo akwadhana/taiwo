@@ -22,7 +22,7 @@ const AdButton: React.FC<AdButtonProps> = ({
   return (
     <div className="flex justify-center my-6">
       <button
-        className="rounded-lg shadow-md flex flex-col items-center justify-center"
+        className="rounded-lg  hover:bg-[#3A5BDB] transition duration-300 shadow-md flex flex-col items-center justify-center"
         style={{ width, height, backgroundColor: bgColor, color: textColor }}
       >
         <p className="text-sm">{subtitle}</p>

@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
     <div className=" bg-white mt-10">
   
     
-        <button className=" lg:ml-[21rem]  bg-blue-500 text-white w-[94px] py-2 rounded-lg">
+        <button className=" lg:ml-[21rem] hover:bg-[#3a55d1] lg:w-[120px]  bg-blue-500 text-white w-[94px] py-2 rounded-lg">
           Technology 
         </button>
 
@@ -38,12 +38,12 @@ const Hero: React.FC = () => {
             alt="Small Icon"
             className="w-6 h-6 lg:w-[36px] lg:h-[36px]  mr-2 rounded-full"
           />
-          <div className="text-sm">
+          <div className="text-sm lg:mt-2">
             Tracey Wilson <span className="ml-5">August 20, 2022</span>
           </div>
         </div>
       </div>
-    <div className="flex  lg:mr-24 items-center justify-center ">
+    <div className="flex  lg:mr-24 items-center justify-center mb-5">
     <img
             src={Paris} 
             alt="Small Icon"

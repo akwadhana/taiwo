@@ -24,9 +24,9 @@ const NavBar: React.FC = () => {
     <nav className="bg-white relative">
       <div className="mx-auto px-4 sm:px-6 lg:px-16">
         <div className="flex items-center justify-between h-16">
-          <div>
+          <div className="lg:mb-1">
             <Link to="/Home">
-              <img className="h-5 md:ml-30" src={Logo} alt="Logo" />
+              <img className="h-5 md:ml-30" src={Logo} alt="Logo " />
             </Link>
           </div>
 
@@ -47,10 +47,10 @@ const NavBar: React.FC = () => {
                 placeholder="Search..."
                 value={searchQuery}
                 onChange={handleSearchChange}
-                className="px-3 py-2 text-sm text-[#A1A1AA] lg:ml-60 outline-none bg-[#F4F4F5] rounded-md"
+                className="px-3 py-2 text-sm text-[#A1A1AA]  lg:ml-60 outline-none bg-[#F4F4F5] rounded-md"
               />
             </form>
-            <FiSearch className="absolute right-72 bottom-6 text-[#52525B]" />
+            <FiSearch className="absolute lg:right-45 right-10 bottom-6 text-[#52525B]" />
           </div>
 
           <div className="-mr-2 flex md:hidden">
@@ -109,9 +109,11 @@ const NavBar: React.FC = () => {
               placeholder="Search..."
               value={searchQuery}
               onChange={handleSearchChange}
-              className="w-full px-3 py-2 text-sm text-[#3B3C4A] border border-[#3B3C4A] rounded-md focus:outline-none focus:ring-2 focus:ring-[#3B3C4A]"
+              className="w-full px-3 py-2 text-sm text-[#A1A1AA] outline-none bg-[#F4F4F5] rounded-md"
+
             />
           </form>
+          <FiSearch className="absolute lg:right-45 right-10 top-97 text-[#52525B]" />
         </div>
       </div>
     </nav>

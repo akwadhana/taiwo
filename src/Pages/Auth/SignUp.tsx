@@ -38,7 +38,7 @@ const SignupForm = () => {
 
   return (
     <div className="lg:min-h-screen bg-white">
-        <div className="lg:absolute lg: top-5 left-[1450px] ">
+        <div className="lg:absolute lg: top-5 left-[1400px] mt-5 ml-3 ">
             <Link to="/Home">
               <img className="h-5 lg:h-7 " src={Logo} alt="Logo" />
             </Link>
@@ -48,13 +48,13 @@ const SignupForm = () => {
         <img
           src={Head}
           alt="Decorative"
-          className="lg:w-1/2 w-full object-cover"
+          className="lg:w-1/2 w-full px-2 lg:px-0 mt-5 lg:mt-0  object-cover"
         />
 
         <div className="w-full relative lg:w-[400px] lg:ml-50 mt-20 p-10 bg-white rounded-lg">
           <h2 className="text-center text-gray-800 text-3xl mb-6">Sign Up</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
-            {/* First Name Field */}
+            
             <div className="relative mb-6">
               <input
                 type="text"
@@ -124,7 +124,7 @@ const SignupForm = () => {
             </button>
             
             <div className="mt-5">
-            <Link to="/Auth/Login" className="text-black hover:underline ">Login?</Link>
+            <Link to="/Auth/Login" className="text-black hover:underline ">Login</Link>
             </div>
       
 

@@ -113,7 +113,7 @@ const Page = () => {
                   <img className="w-full h-full object-cover" src={card.imageSrc1} alt={card.title} />
                 </div>
               </div>
-              <button className="mt-4 bg-[#4B6BFB0D] text-center text-[#4B6BFB] py-2 px-6 lg:w-35 rounded-lg">
+              <button className="mt-4 bg-[#4B6BFB0D] text-center hover:bg-[#4B6BFB] hover:text-white transition duration-300 text-[#4B6BFB] py-2 px-6 lg:w-35 rounded-lg">
                 {card.button1}
               </button>
               <p className="text-[#181A2A] text-[20px] px-3 mt-4">{card.description}</p>
@@ -127,9 +127,12 @@ const Page = () => {
             </div>
           ))}
         </div>
-        <button onClick={loadMoreCards} className="mt-6 bg-[#4B6BFB] text-white py-2 px-6 rounded-lg">
-          Load More
-        </button>
+        <button 
+  onClick={loadMoreCards} 
+  className="mt-6 bg-[#4B6BFB] text-white py-2 px-6 rounded-lg hover:bg-[#3A5BDB] transition duration-300"
+>
+  Load More
+</button>
       </div>
     </>
   );
